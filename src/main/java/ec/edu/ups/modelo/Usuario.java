@@ -1,18 +1,24 @@
 package ec.edu.ups.modelo;
+import java.time.LocalDate;
 
 public class Usuario {
     private String username;
     private String contrasenia;
     private Rol rol;
+    private String nombreCompleto;
+    private LocalDate fechaNacimiento;
+    private String correoElectronico;
+    private String telefono;
 
-    public Usuario() {
 
-    }
-
-    public Usuario(String nombreDeUsuario, String contrasenia, Rol rol) {
+    public Usuario(String nombreDeUsuario, String contrasenia, Rol rol, String nombreCompleto, LocalDate fechaNacimiento, String correoElectronico, String telefono) {
         this.username = nombreDeUsuario;
         this.contrasenia = contrasenia;
         this.rol = rol;
+        this.nombreCompleto = nombreCompleto;
+        this.fechaNacimiento = fechaNacimiento;
+        this.correoElectronico = correoElectronico;
+        this.telefono = telefono;
     }
 
     public String getUsername() {
@@ -38,13 +44,48 @@ public class Usuario {
     public void setRol(Rol rol) {
         this.rol = rol;
     }
+    public String getNombreCompleto() {
+        return nombreCompleto;
+    }
+
+    public void setNombreCompleto(String nombreCompleto) {
+        this.nombreCompleto = nombreCompleto;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public String getCorreoElectronico() {
+        return correoElectronico;
+    }
+
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
 
     @Override
     public String toString() {
         return "Usuario{" +
                 "nombreDeUsuario='" + username + '\'' +
                 ", contrasenia='" + contrasenia + '\'' +
-                ", rol=" + rol +
+                ", rol=" + rol + '\'' +
+                ", nombreCompleto='" + nombreCompleto + '\'' +
+                ", fechaNacimiento=" + fechaNacimiento +
+                ", correoElectronico='" + correoElectronico + '\'' +
+                ", telefono='" + telefono + '\'' +
                 '}';
     }
 }

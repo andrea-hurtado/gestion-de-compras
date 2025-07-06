@@ -17,6 +17,7 @@ public class UsuarioController {
         this.usuarioDAO = usuarioDAO;
         this.loginView = loginView;
         this.usuario = null;
+
         configurarEventosEnVistas();
     }
 
@@ -44,4 +45,5 @@ public class UsuarioController {
     public Usuario getUsuarioAutenticado(){
         return usuario;
     }
+    
 }
