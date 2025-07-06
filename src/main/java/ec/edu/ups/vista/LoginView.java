@@ -14,7 +14,7 @@ public class LoginView extends JFrame {
     private JPasswordField txtContrasenia;
     private JButton btnIniciarSesion;
     private JButton btnRegistrarse;
-    private JButton recuperarButton;
+    private JButton btnRecuperar;
     private JLabel lblMensaje;
     private JComboBox<String> comboBoxIdioma;
     private JButton btnCambiarIdioma;
@@ -46,7 +46,6 @@ public class LoginView extends JFrame {
         comboBoxIdioma.addItem(mensajeHandler.getMensaje("lenguaje.ingles"));
         comboBoxIdioma.addItem(mensajeHandler.getMensaje("lenguaje.frances"));
 
-        // Detectar el idioma ACTUAL y seleccionar la opción correcta
         String lang = mensajeHandler.getLocale().getLanguage();
         if (lang.equals("es")) {
             comboBoxIdioma.setSelectedItem(mensajeHandler.getMensaje("lenguaje.espaniol"));
@@ -84,10 +83,9 @@ public class LoginView extends JFrame {
         lblContrasenia.setText(mensajeHandler.getMensaje("login.lblcontrasenia"));
         btnIniciarSesion.setText(mensajeHandler.getMensaje("login.boton"));
         btnRegistrarse.setText(mensajeHandler.getMensaje("login.registrarse"));
-        recuperarButton.setText(mensajeHandler.getMensaje("login.recuperar"));
+        btnRecuperar.setText(mensajeHandler.getMensaje("login.recuperar"));
         lblMensaje.setText(mensajeHandler.getMensaje("login.lblmensaje"));
 
-        // Refresca el combo en el idioma correcto
         configurarComboBoxIdioma();
     }
 
@@ -122,7 +120,7 @@ public class LoginView extends JFrame {
         return btnRegistrarse;
     }
     public JButton getRecuperarButton() {
-        return recuperarButton;
+        return btnRecuperar;
     }
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);

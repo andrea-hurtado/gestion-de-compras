@@ -1,5 +1,8 @@
 package ec.edu.ups.modelo;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario {
     private String username;
@@ -9,7 +12,21 @@ public class Usuario {
     private LocalDate fechaNacimiento;
     private String correoElectronico;
     private String telefono;
+    List<String> preguntasSeguridad;
+    List<String> respuestasSeguridad;
 
+
+    public Usuario(String nombreDeUsuario, String contrasenia, Rol rol, String nombreCompleto, LocalDate fechaNacimiento, String correoElectronico, String telefono, List<String> preguntasSeguridad, List<String> respuestasSeguridad) {
+        this.username = nombreDeUsuario;
+        this.contrasenia = contrasenia;
+        this.rol = rol;
+        this.nombreCompleto = nombreCompleto;
+        this.fechaNacimiento = fechaNacimiento;
+        this.correoElectronico = correoElectronico;
+        this.telefono = telefono;
+        this.preguntasSeguridad = preguntasSeguridad;
+        this.respuestasSeguridad = respuestasSeguridad;
+    }
 
     public Usuario(String nombreDeUsuario, String contrasenia, Rol rol, String nombreCompleto, LocalDate fechaNacimiento, String correoElectronico, String telefono) {
         this.username = nombreDeUsuario;
@@ -19,6 +36,25 @@ public class Usuario {
         this.fechaNacimiento = fechaNacimiento;
         this.correoElectronico = correoElectronico;
         this.telefono = telefono;
+        this.preguntasSeguridad = new ArrayList<>();
+        this.respuestasSeguridad = new ArrayList<>();
+    }
+
+
+    public List<String> getPreguntasSeguridad() {
+        return preguntasSeguridad;
+    }
+
+    public void setPreguntasSeguridad(List<String> preguntasSeguridad) {
+        this.preguntasSeguridad = preguntasSeguridad;
+    }
+
+    public List<String> getRespuestasSeguridad() {
+        return respuestasSeguridad;
+    }
+
+    public void setRespuestasSeguridad(List<String> respuestasSeguridad) {
+        this.respuestasSeguridad = respuestasSeguridad;
     }
 
     public String getUsername() {
@@ -86,6 +122,8 @@ public class Usuario {
                 ", fechaNacimiento=" + fechaNacimiento +
                 ", correoElectronico='" + correoElectronico + '\'' +
                 ", telefono='" + telefono + '\'' +
+                ", preguntasSeguridad=" + preguntasSeguridad +
+                ", respuestasSeguridad=" + respuestasSeguridad +
                 '}';
     }
 }

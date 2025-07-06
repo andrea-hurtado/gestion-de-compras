@@ -15,6 +15,12 @@ public class UsuarioRegistroView extends JInternalFrame {
     private JTextField txtRespuesta2;
     private JTextField txtRespuesta3;
     private JButton btnRegistrarse;
+    private JLabel lblNombreCompleto;
+    private JLabel lblFechaNacimiento;
+    private JLabel lblCorreoElectronico;
+    private JLabel lblRespuesta1;
+    private JLabel lblRespuesta2;
+    private JLabel lblRespuesta3;
 
     public UsuarioRegistroView() {
         setContentPane(panelPrincipal);
@@ -30,8 +36,7 @@ public class UsuarioRegistroView extends JInternalFrame {
         String[] preguntas = {
                 "¿Cuál es su deporte favorito?",
                 "¿Cuál es el primer nombre de su padre?",
-                "¿Cuál es su color favorito?",
-                "¿Cuál es su película favorita?"
+                "¿Cuál es su una película que le ponga triste?"
         };
 
         cbxPregunta1.setModel(new DefaultComboBoxModel<>(preguntas));
@@ -46,6 +51,7 @@ public class UsuarioRegistroView extends JInternalFrame {
     public void setPanelPrincipal(JPanel panelPrincipal) {
         this.panelPrincipal = panelPrincipal;
     }
+
 
     public JTextField getTxtNombreCompleto() {
         return txtNombreCompleto;
@@ -134,5 +140,53 @@ public class UsuarioRegistroView extends JInternalFrame {
 
     public void setTxtTelefono(JTextField txtTelefono) {
         this.txtTelefono = txtTelefono;
+    }
+
+    public JLabel getLblFechaNacimiento() {
+        return lblFechaNacimiento;
+    }
+
+    public void setLblFechaNacimiento(JLabel lblFechaNacimiento) {
+        this.lblFechaNacimiento = lblFechaNacimiento;
+    }
+
+    public JLabel getLblNombreCompleto() {
+        return lblNombreCompleto;
+    }
+
+    public void setLblNombreCompleto(JLabel lblNombreCompleto) {
+        this.lblNombreCompleto = lblNombreCompleto;
+    }
+
+    public JLabel getLblCorreoElectronico() {
+        return lblCorreoElectronico;
+    }
+
+    public void setLblCorreoElectronico(JLabel lblCorreoElectronico) {
+        this.lblCorreoElectronico = lblCorreoElectronico;
+    }
+
+    public JLabel getLblRespuesta1() {
+        return lblRespuesta1;
+    }
+
+    public void setLblRespuesta1(JLabel lblRespuesta1) {
+        this.lblRespuesta1 = lblRespuesta1;
+    }
+
+    public JLabel getLblRespuesta2() {
+        return lblRespuesta2;
+    }
+
+    public void setLblRespuesta2(JLabel lblRespuesta2) {
+        this.lblRespuesta2 = lblRespuesta2;
+    }
+
+    public JLabel getLblRespuesta3() {
+        return lblRespuesta3;
+    }
+
+    public void setLblRespuesta3(JLabel lblRespuesta3) {
+        this.lblRespuesta3 = lblRespuesta3;
     }
 }

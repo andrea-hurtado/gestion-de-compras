@@ -8,6 +8,9 @@ public class UsuarioAdminView extends JInternalFrame {
     private JTextField txtFechaNacimiento;
     private JTextField txtCorreoElectronico;
     private JTextField txtTelefono;
+    private JLabel lblNombreCompleto;
+    private JLabel lblFechaNacimiento;
+    private JLabel lblTelefono;
     private JButton btnCrear;
     private JButton btnEditar;
     private JButton btnEliminar;
@@ -101,5 +104,29 @@ public class UsuarioAdminView extends JInternalFrame {
 
     public void setBtnListar(JButton btnListar) {
         this.btnListar = btnListar;
+    }
+
+    public JLabel getLblFechaNacimiento() {
+        return lblFechaNacimiento;
+    }
+
+    public void setLblFechaNacimiento(JLabel lblFechaNacimiento) {
+        this.lblFechaNacimiento = lblFechaNacimiento;
+    }
+
+    public JLabel getLblTelefono() {
+        return lblTelefono;
+    }
+
+    public void setLblTelefono(JLabel lblTelefono) {
+        this.lblTelefono = lblTelefono;
+    }
+
+    public JLabel getLblNombreCompleto() {
+        return lblNombreCompleto;
+    }
+
+    public void setLblNombreCompleto(JLabel lblNombreCompleto) {
+        this.lblNombreCompleto = lblNombreCompleto;
     }
 }

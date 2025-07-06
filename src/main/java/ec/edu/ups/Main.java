@@ -30,9 +30,8 @@ public class Main {
 
             loginView.getBtnRegistrarse().addActionListener(ev -> {
                 registroView.setVisible(true);
-                loginView.getLayeredPane().add(registroView); // O tu contenedor principal
+                loginView.getLayeredPane().add(registroView);
             });
-
 
             loginView.setVisible(true);
 
@@ -41,7 +40,7 @@ public class Main {
                 public void windowClosed(WindowEvent e) {
                     Usuario usuarioAutenticado = usuarioController.getUsuarioAutenticado();
                     if (usuarioAutenticado != null) {
-                        // Instanciar DAOs y vistas principales
+
                         ProductoDAO productoDAO = new ProductoDAOMemoria();
                         CarritoDAO carritoDAO = new CarritoDAOMemoria();
 
@@ -60,7 +59,7 @@ public class Main {
                             principalView.deshabilitarMenusAdministrador();
                         }
 
-                        // Listeners de cambio de idioma en el menú principal
+
                         principalView.getMenuItemIdiomaEspanol().addActionListener(ev -> {
                             mensajeHandler.setLenguaje("es", "EC");
                             //principalView.actualizarTextos();

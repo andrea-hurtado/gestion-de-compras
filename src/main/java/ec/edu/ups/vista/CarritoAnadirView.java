@@ -19,6 +19,9 @@ public class CarritoAnadirView extends JInternalFrame {
     private JButton btnLimpiar;
     private JComboBox cbxCantidad;
     private JPanel panelPrincipal;
+    private JLabel lblIVA;
+    private JLabel lblTotal;
+    private JLabel lblSubtotal;
     private MensajeInternacionalizacionHandler mensajeInternacionalizacion;
 
     public CarritoAnadirView(MensajeInternacionalizacionHandler mensajeInternacionalizacion){
@@ -102,5 +105,33 @@ public class CarritoAnadirView extends JInternalFrame {
 
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);
+    }
+
+    public void setBtnBuscar(JButton btnBuscar) {
+        this.btnBuscar = btnBuscar;
+    }
+
+    public JLabel getLblSubtotal() {
+        return lblSubtotal;
+    }
+
+    public void setLblSubtotal(JLabel lblSubtotal) {
+        this.lblSubtotal = lblSubtotal;
+    }
+
+    public JLabel getLblTotal() {
+        return lblTotal;
+    }
+
+    public void setLblTotal(JLabel lblTotal) {
+        this.lblTotal = lblTotal;
+    }
+
+    public JLabel getLblIVA() {
+        return lblIVA;
+    }
+
+    public void setLblIVA(JLabel lblIVA) {
+        this.lblIVA = lblIVA;
     }
 }
