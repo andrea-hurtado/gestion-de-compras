@@ -1,48 +1,22 @@
-# 🛒 Proyecto de Ejemplo - Carrito de Compras
+# Carrito de Compras - Aplicación Java Swing (MDI + MVC + DAO + SOLID)
+## Descripción General
+Este proyecto es una aplicación de escritorio desarrollada en Java utilizando Swing, que implementa un sistema de carrito de compras con enfoque en el patrón de diseño Modelo-Vista-Controlador (MVC), DAO para gestión de datos y principios SOLID. La interfaz gráfica adopta el estilo MDI (Multiple Document Interface), utilizando JDesktopPane como contenedor principal y JInternalFrame para ventanas internas.
 
-Este proyecto fue desarrollado como parte del **período 66** de la asignatura **Programación Orientada a Objetos** en la Universidad Politécnica Salesiana.  
-Su objetivo principal es demostrar el uso de **patrones de diseño** aplicados a una aplicación Java con interfaz gráfica construida con **Swing**.
+## Características Principales
+Registro y autenticación de usuarios (incluyendo roles: administrador y usuario).
 
----
+Gestión de preguntas de seguridad para recuperación de contraseña.
 
-## 🎯 Objetivo del proyecto
+CRUD de usuarios y productos con control de acceso según rol.
 
-Implementar un sistema educativo que simula un **carrito de compras**, utilizando buenas prácticas de diseño y una arquitectura desacoplada basada en **MVC** (Modelo-Vista-Controlador), **DAO** (Data Access Object) y principios de **POO** y **SOLID**.
+Gestión de carritos de compras (crear, modificar, eliminar, listar).
 
----
+Internacionalización: Soporte dinámico para español, inglés y francés, con archivos .properties.
 
-## 🛠️ Tecnologías utilizadas
+Formateo de fechas y números de acuerdo con la configuración regional.
 
-- 💻 **Java 21**
-- 🧰 **IntelliJ IDEA** (recomendado con el plugin de diseñador gráfico de interfaces Swing)
-- ☕ **Swing** para la interfaz gráfica
-- 📦 Estructura modular basada en paquetes: `modelo`, `dao`, `controlador`, `vista`, y `servicio`
+Gráficos personalizados en la interfaz utilizando la clase Graphics.
 
----
+Uso de ImageIcon en todos los botones para mejorar la experiencia visual.
 
-## 🧱 Patrones de Diseño aplicados
-
-- **MVC (Modelo - Vista - Controlador)**  
-  Para separar la lógica de negocio de la interfaz gráfica.
-
-- **DAO (Data Access Object)**  
-  Para desacoplar el acceso a los datos, facilitando la migración a diferentes fuentes (archivos, base de datos, etc.).
-
-- **SRP y DIP** de los principios **SOLID**  
-  Para asegurar una arquitectura mantenible, extensible y fácil de testear.
-
----
-
-
-## 📚 Recomendaciones
-
-- Ejecutar el proyecto desde `Main.java`
-- Usar IntelliJ IDEA para aprovechar el editor visual de formularios `.form`
-- Probar con diferentes implementaciones del DAO para observar la flexibilidad del patrón
-
----
-
-## © Créditos
-
-Desarrollado como parte de la práctica académica en **Programación Orientada a Objetos – Periodo 66**.
-
+Arquitectura desacoplada: Uso de MVC, DAO, e implementación clara de SOLID.
