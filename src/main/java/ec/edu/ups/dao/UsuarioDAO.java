@@ -21,4 +21,7 @@ public interface UsuarioDAO {
 
     List<Usuario> listarPorRol(Rol rol);
 
+    Usuario buscarPorCorreo(String correo);
+
+
 }

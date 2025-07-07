@@ -24,6 +24,7 @@ public class UsuarioRegistroController {
 
     private void registrarUsuario() {
 
+        try {
             String nombre = vista.getTxtNombreCompleto().getText();
             LocalDate fechaNacimiento = LocalDate.parse(vista.getTxtFechaNacimiento().getText()); // usa un formateador si lo necesitas
             String correo = vista.getTxtCorreoElectronico().getText();
@@ -41,26 +42,32 @@ public class UsuarioRegistroController {
             List<String> preguntas = Arrays.asList(pregunta1, pregunta2, pregunta3);
             List<String> respuestas = Arrays.asList(respuesta1, respuesta2, respuesta3);
 
-            String username = correo;
-            String contrasenia = "1234";
+            String username = vista.getTxtIngreseUsuario().getText();
+            String contrasenia = vista.getTxtIngreseContrasenia().getText();
 
-        Usuario nuevoUsuario = new Usuario(
-                username,
-                contrasenia,
-                Rol.USUARIO,
-                nombre,
-                fechaNacimiento,
-                correo,
-                telefono,
-                preguntas,
-                respuestas
-        );
+            Usuario nuevoUsuario = new Usuario(
+                    username,
+                    contrasenia,
+                    Rol.USUARIO,
+                    nombre,
+                    fechaNacimiento,
+                    correo,
+                    telefono,
+                    preguntas,
+                    respuestas
+            );
 
             usuarioDAO.crear(nuevoUsuario);
 
-            JOptionPane.showMessageDialog(vista,"Usuario registrado correctamente");
+            JOptionPane.showMessageDialog(vista, "Usuario registrado correctamente");
             vista.dispose();
 
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(vista, "Error en el registro: " + e.getMessage());
         }
+
+        }
+
 }
+
 

@@ -60,7 +60,6 @@ public class MenuPrincipalView extends JFrame {
         return jDesktopPane;
     }
 
-
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);
     }

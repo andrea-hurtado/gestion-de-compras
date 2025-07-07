@@ -1,5 +1,7 @@
 package ec.edu.ups.vista;
 
+import ec.edu.ups.util.MensajeInternacionalizacionHandler;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
@@ -11,8 +13,11 @@ public class CarritoListaView extends JInternalFrame {
     private JPanel panel1;
     private JTable table1;
     private JButton listarButton;
+    private MensajeInternacionalizacionHandler mensajeInternacionalizacion;
 
-    public CarritoListaView() {
+
+    public CarritoListaView(MensajeInternacionalizacionHandler mensajeInternacionalizacion) {
+        this.mensajeInternacionalizacion = mensajeInternacionalizacion;
         setContentPane(panelPrincipal);
         setTitle("Listado de Carritos");
         setSize(600, 400);

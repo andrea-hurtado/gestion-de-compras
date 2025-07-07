@@ -19,6 +19,7 @@ public class UsuarioDAOMemoria implements UsuarioDAO {
         crear(new Usuario("user", "12345", Rol.USUARIO, "Tatiana Hurtado", LocalDate.parse("2000-08-03"), "tatianahurtado@gmail.com", "0995700100"));
     }
 
+
     @Override
     public Usuario autenticar(String username, String contrasenia) {
         for (Usuario usuario : usuarios) {
@@ -71,6 +72,17 @@ public class UsuarioDAOMemoria implements UsuarioDAO {
     public List<Usuario> listarTodos() {
         return usuarios;
     }
+
+    @Override
+    public Usuario buscarPorCorreo(String correo) {
+        for (Usuario usuario : usuarios) {
+            if (usuario.getCorreoElectronico().equals(correo)) {
+                return usuario;
+            }
+        }
+        return null;
+    }
+
 
     @Override
     public List<Usuario> listarPorRol(Rol rol) {

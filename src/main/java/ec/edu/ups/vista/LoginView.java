@@ -2,6 +2,8 @@ package ec.edu.ups.vista;
 
 import ec.edu.ups.util.MensajeInternacionalizacionHandler;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.URL;
 
 public class LoginView extends JFrame {
@@ -20,13 +22,15 @@ public class LoginView extends JFrame {
     private JButton btnCambiarIdioma;
     private MensajeInternacionalizacionHandler mensajeHandler;
 
+
+
     public LoginView(MensajeInternacionalizacionHandler handler) {
         this.mensajeHandler = handler;
         setContentPane(panelPrincipal);
         setTitle(mensajeHandler.getMensaje("ventana.titulo"));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);
-        setLocationRelativeTo(null);
+
 
         configurarComboBoxIdioma();
         comboBoxIdioma.addActionListener(e -> {
@@ -36,6 +40,7 @@ public class LoginView extends JFrame {
         });
         actualizarTextos();
         cargarIconos();
+
     }
 
     private void configurarComboBoxIdioma() {
@@ -89,6 +94,7 @@ public class LoginView extends JFrame {
         configurarComboBoxIdioma();
     }
 
+
     public void cargarIconos() {
         URL loginURL = LoginView.class.getClassLoader().getResource("imagenes/login.png");
         if (loginURL != null) {
@@ -100,31 +106,122 @@ public class LoginView extends JFrame {
         }
     }
 
+    public boolean isComboInicializado() {
+        return comboInicializado;
+    }
+
+    public void setComboInicializado(boolean comboInicializado) {
+        this.comboInicializado = comboInicializado;
+    }
 
     public JPanel getPanelPrincipal() {
         return panelPrincipal;
     }
+
+    public void setPanelPrincipal(JPanel panelPrincipal) {
+        this.panelPrincipal = panelPrincipal;
+    }
+
     public JPanel getPanelSecundario() {
         return panelSecundario;
     }
+
+    public void setPanelSecundario(JPanel panelSecundario) {
+        this.panelSecundario = panelSecundario;
+    }
+
+    public JLabel getLblUsuario() {
+        return lblUsuario;
+    }
+
+    public void setLblUsuario(JLabel lblUsuario) {
+        this.lblUsuario = lblUsuario;
+    }
+
+    public JLabel getLblContrasenia() {
+        return lblContrasenia;
+    }
+
+    public void setLblContrasenia(JLabel lblContrasenia) {
+        this.lblContrasenia = lblContrasenia;
+    }
+
     public JTextField getTxtUsername() {
         return txtUsername;
     }
+
+    public void setTxtUsername(JTextField txtUsername) {
+        this.txtUsername = txtUsername;
+    }
+
     public JPasswordField getTxtContrasenia() {
         return txtContrasenia;
     }
+
+    public void setTxtContrasenia(JPasswordField txtContrasenia) {
+        this.txtContrasenia = txtContrasenia;
+    }
+
     public JButton getBtnIniciarSesion() {
         return btnIniciarSesion;
     }
+
+    public void setBtnIniciarSesion(JButton btnIniciarSesion) {
+        this.btnIniciarSesion = btnIniciarSesion;
+    }
+
     public JButton getBtnRegistrarse() {
         return btnRegistrarse;
     }
-    public JButton getRecuperarButton() {
+
+    public void setBtnRegistrarse(JButton btnRegistrarse) {
+        this.btnRegistrarse = btnRegistrarse;
+    }
+
+    public JButton getBtnRecuperar() {
         return btnRecuperar;
     }
+
+    public void setBtnRecuperar(JButton btnRecuperar) {
+        this.btnRecuperar = btnRecuperar;
+    }
+
+    public JLabel getLblMensaje() {
+        return lblMensaje;
+    }
+
+    public void setLblMensaje(JLabel lblMensaje) {
+        this.lblMensaje = lblMensaje;
+    }
+
+    public JButton getBtnCambiarIdioma() {
+        return btnCambiarIdioma;
+    }
+
+    public void setBtnCambiarIdioma(JButton btnCambiarIdioma) {
+        this.btnCambiarIdioma = btnCambiarIdioma;
+    }
+
+    public JComboBox<String> getComboBoxIdioma() {
+        return comboBoxIdioma;
+    }
+
+    public void setComboBoxIdioma(JComboBox<String> comboBoxIdioma) {
+        this.comboBoxIdioma = comboBoxIdioma;
+    }
+
+    public MensajeInternacionalizacionHandler getMensajeHandler() {
+        return mensajeHandler;
+    }
+
+    public void setMensajeHandler(MensajeInternacionalizacionHandler mensajeHandler) {
+        this.mensajeHandler = mensajeHandler;
+    }
+
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);
     }
+
 }
 
 

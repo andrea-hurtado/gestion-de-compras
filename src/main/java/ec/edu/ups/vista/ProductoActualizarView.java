@@ -1,5 +1,7 @@
 package ec.edu.ups.vista;
 
+import ec.edu.ups.util.MensajeInternacionalizacionHandler;
+
 import javax.swing.*;
 
 public class ProductoActualizarView {
@@ -8,6 +10,11 @@ public class ProductoActualizarView {
     private JTable table1;
     private JButton eliminarButton;
     private JButton btnBuscar;
+    private MensajeInternacionalizacionHandler mensajeHandler;
+
+    public ProductoActualizarView(MensajeInternacionalizacionHandler handler) {
+        this.mensajeHandler = handler;
+    }
 
     public JTextField getTxtIngreseProducto() {
         return txtIngreseProducto;
@@ -49,7 +56,5 @@ public class ProductoActualizarView {
         this.btnBuscar = btnBuscar;
     }
 
-    public ProductoActualizarView() {
 
-    }
 }

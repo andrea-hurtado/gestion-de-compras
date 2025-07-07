@@ -1,5 +1,7 @@
 package ec.edu.ups.vista;
 
+import ec.edu.ups.util.MensajeInternacionalizacionHandler;
+
 import javax.swing.*;
 
 public class UsuarioAdminView extends JInternalFrame {
@@ -16,8 +18,10 @@ public class UsuarioAdminView extends JInternalFrame {
     private JButton btnEliminar;
     private JButton btnBuscar;
     private JButton btnListar;
+    private MensajeInternacionalizacionHandler mensajeHandler;
 
-    public UsuarioAdminView() {
+    public UsuarioAdminView(MensajeInternacionalizacionHandler handler) {
+        this.mensajeHandler = handler;
         setContentPane(panelPrincipal);
         setTitle("Gestión de Usuarios");
         setSize(600, 400);

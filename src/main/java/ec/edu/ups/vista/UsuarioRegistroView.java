@@ -1,8 +1,11 @@
 package ec.edu.ups.vista;
 
+import ec.edu.ups.modelo.Rol;
+import ec.edu.ups.util.MensajeInternacionalizacionHandler;
+
 import javax.swing.*;
 
-public class UsuarioRegistroView extends JInternalFrame {
+public class UsuarioRegistroView extends JFrame {
     private JPanel panelPrincipal;
     private JTextField txtNombreCompleto;
     private JTextField txtFechaNacimiento;
@@ -21,16 +24,29 @@ public class UsuarioRegistroView extends JInternalFrame {
     private JLabel lblRespuesta1;
     private JLabel lblRespuesta2;
     private JLabel lblRespuesta3;
+    private JLabel lblSistemaRegistro;
+    private JTextField txtIngreseUsuario;
+    private JTextField txtIngreseContrasenia;
+    private JLabel lblusuario;
+    private JLabel lblContrasenia;
+    private JLabel lblTelefono;
+    private MensajeInternacionalizacionHandler mensajeHandler;
 
-    public UsuarioRegistroView() {
+    public UsuarioRegistroView(MensajeInternacionalizacionHandler handler) {
+        this.mensajeHandler = handler;
+        initComponents();
+        //initPreguntasSeguridad();
+    }
+    private void initComponents() {
+        setSize(400, 300);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setContentPane(panelPrincipal);
-        setTitle("Registro de Usuario");
-        setSize(600, 500);
-        setClosable(true);
-        setIconifiable(true);
-        setResizable(true);
-
-        initPreguntasSeguridad();
+//
+//        cbxRol.removeAllItems();
+//        for (Rol rol : Rol.values()) {
+//            cbxRol.addItem(rol);
+//        }
     }
     private void initPreguntasSeguridad() {
         String[] preguntas = {
@@ -39,9 +55,9 @@ public class UsuarioRegistroView extends JInternalFrame {
                 "¿Cuál es su una película que le ponga triste?"
         };
 
-        cbxPregunta1.setModel(new DefaultComboBoxModel<>(preguntas));
-        cbxPregunta2.setModel(new DefaultComboBoxModel<>(preguntas));
-        cbxPregunta3.setModel(new DefaultComboBoxModel<>(preguntas));
+        //cbxPregunta1.setModel(new DefaultComboBoxModel<>(preguntas));
+        //cbxPregunta2.setModel(new DefaultComboBoxModel<>(preguntas));
+        //cbxPregunta3.setModel(new DefaultComboBoxModel<>(preguntas));
     }
 
     public JPanel getPanelPrincipal() {
@@ -188,5 +204,53 @@ public class UsuarioRegistroView extends JInternalFrame {
 
     public void setLblRespuesta3(JLabel lblRespuesta3) {
         this.lblRespuesta3 = lblRespuesta3;
+    }
+
+    public JLabel getLblSistemaRegistro() {
+        return lblSistemaRegistro;
+    }
+
+    public void setLblSistemaRegistro(JLabel lblSistemaRegistro) {
+        this.lblSistemaRegistro = lblSistemaRegistro;
+    }
+
+    public JTextField getTxtIngreseUsuario() {
+        return txtIngreseUsuario;
+    }
+
+    public void setTxtIngreseUsuario(JTextField txtIngreseUsuario) {
+        this.txtIngreseUsuario = txtIngreseUsuario;
+    }
+
+    public JTextField getTxtIngreseContrasenia() {
+        return txtIngreseContrasenia;
+    }
+
+    public void setTxtIngreseContrasenia(JTextField txtIngreseContrasenia) {
+        this.txtIngreseContrasenia = txtIngreseContrasenia;
+    }
+
+    public JLabel getLblusuario() {
+        return lblusuario;
+    }
+
+    public void setLblusuario(JLabel lblusuario) {
+        this.lblusuario = lblusuario;
+    }
+
+    public JLabel getLblContrasenia() {
+        return lblContrasenia;
+    }
+
+    public void setLblContrasenia(JLabel lblContrasenia) {
+        this.lblContrasenia = lblContrasenia;
+    }
+
+    public JLabel getLblTelefono() {
+        return lblTelefono;
+    }
+
+    public void setLblTelefono(JLabel lblTelefono) {
+        this.lblTelefono = lblTelefono;
     }
 }

@@ -1,6 +1,7 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.modelo.Producto;
+import ec.edu.ups.util.MensajeInternacionalizacionHandler;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -15,9 +16,11 @@ public class ProductoListaView extends JInternalFrame {
     private JButton btnListar;
     private JLabel lblListaProductos;
     private DefaultTableModel modelo;
+    private MensajeInternacionalizacionHandler mensajeHandler;
 
-    public ProductoListaView() {
+    public ProductoListaView(MensajeInternacionalizacionHandler handler) {
 
+        this.mensajeHandler = handler;
         setContentPane(panelPrincipal);
         setTitle("Listado de Productos");
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);

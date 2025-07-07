@@ -2,10 +2,8 @@ package ec.edu.ups.controlador;
 
 import ec.edu.ups.dao.ProductoDAO;
 import ec.edu.ups.modelo.Producto;
-import ec.edu.ups.vista.CarritoAnadirView;
+import ec.edu.ups.vista.*;
 import ec.edu.ups.vista.ProductoAnadirView;
-import ec.edu.ups.vista.ProductoAnadirView;
-import ec.edu.ups.vista.ProductoListaView;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,7 +20,9 @@ public class ProductoController {
     public ProductoController(ProductoDAO productoDAO,
                               ProductoAnadirView productoAñadirView,
                               ProductoListaView productoListaView,
-                              CarritoAnadirView carritoAñadirView) {
+                              CarritoAnadirView carritoAñadirView,
+                              ProductoActualizarView productoActualizarView,
+                              ProductoEliminarView productoEliminarView) {
 
         this.productoDAO = productoDAO;
         this.productoAñadirView = productoAñadirView;
