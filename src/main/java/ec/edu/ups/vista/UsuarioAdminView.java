@@ -24,6 +24,7 @@ public class UsuarioAdminView extends JInternalFrame {
     private JTable tblUsuarios;
     private JComboBox cbxRol;
     private JLabel lblRol;
+    private JButton btnEliminar;
     private MensajeInternacionalizacionHandler mensajeHandler;
     private DefaultTableModel modelo;
 
@@ -88,9 +89,10 @@ public class UsuarioAdminView extends JInternalFrame {
     public void cargarDatos(List<Usuario> usuarios) {
         modelo.setRowCount(0);
         for (Usuario u : usuarios) {
-            modelo.addRow(new Object[]{u.getUsername(), u.getRol()});
+            modelo.addRow(new Object[]{u.getUsername(), u.getCorreoElectronico(), u.getRol()});
         }
     }
+
 
     public JPanel getPanelPrincipal() {
         return panelPrincipal;
@@ -196,6 +198,14 @@ public class UsuarioAdminView extends JInternalFrame {
 
     public void setLblRol(JLabel lblRol) {
         this.lblRol = lblRol;
+    }
+
+    public JButton getBtnEliminar() {
+        return btnEliminar;
+    }
+
+    public void setBtnEliminar(JButton btnEliminar) {
+        this.btnEliminar = btnEliminar;
     }
 
     public MensajeInternacionalizacionHandler getMensajeHandler() {

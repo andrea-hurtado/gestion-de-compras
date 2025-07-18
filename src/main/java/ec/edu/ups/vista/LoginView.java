@@ -31,7 +31,6 @@ public class LoginView extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(600, 400);
 
-
         configurarComboBoxIdioma();
         comboBoxIdioma.addActionListener(e -> {
             if (comboInicializado) {
