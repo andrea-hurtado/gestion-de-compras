@@ -6,24 +6,34 @@ import java.util.List;
 
 
 public class Carrito {
+    private Usuario usuario;
 
-        private final double IVA = 0.12;
+    public Usuario getUsuario() {
+        return usuario;
+    }
 
-        private static int contador = 1;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
 
-        private int codigo;
 
-        private GregorianCalendar fechaCreacion;
+    private final double IVA = 0.12;
 
-        private List<ItemCarrito> items;
+    private static int contador = 1;
 
-        public Carrito() {
-            codigo = contador++;
-            items = new ArrayList<>();
-            fechaCreacion = new GregorianCalendar();
-        }
+    private int codigo;
 
-        public int getCodigo() {
+    private GregorianCalendar fechaCreacion;
+
+    private List<ItemCarrito> items;
+
+    public Carrito() {
+        codigo = contador++;
+        items = new ArrayList<>();
+        fechaCreacion = new GregorianCalendar();
+    }
+
+    public int getCodigo() {
             return codigo;
         }
 
@@ -90,6 +100,14 @@ public class Carrito {
                     ", fechaCreacion=" + fechaCreacion +
                     ", items=" + items +
                     '}';
+        }
+        public void actualizarCantidadProducto(int codigoProducto, int nuevaCantidad) {
+            for (ItemCarrito item : items) {
+                if (item.getProducto().getCodigo() == codigoProducto) {
+                    item.setCantidad(nuevaCantidad);
+                    break;
+               }
+            }
         }
 }
 

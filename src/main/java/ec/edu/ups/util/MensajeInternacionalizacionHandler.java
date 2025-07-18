@@ -28,4 +28,10 @@ public class MensajeInternacionalizacionHandler {
     public String getMensaje(String clave) {
         return  this.bundle.getString(clave);
     }
+
+    public void setLocale(Locale nuevoLocale) {
+        this.locale = nuevoLocale;
+        this.bundle = ResourceBundle.getBundle("mensajes", this.locale);
+    }
+
 }

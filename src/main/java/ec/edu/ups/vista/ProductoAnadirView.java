@@ -24,24 +24,76 @@ public class ProductoAnadirView extends JInternalFrame {
     public ProductoAnadirView(MensajeInternacionalizacionHandler handler) {
 
         this.mensajeHandler = handler;
-        setContentPane(panelPrincipal);
+        initComponents();
+//        setContentPane(panelPrincipal);
         setTitle("Datos del Producto");
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
         setSize(500, 500);
         setClosable(true);
         setIconifiable(true);
         setResizable(true);
-        //setLocationRelativeTo(null);
-        //setVisible(true);
-        //pack();
+        actualizarTextos();
+
 
         btnLimpiar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                mostrarMensaje("Producto añadido: " +
+                        txtCodigo.getText() + " - " +
+                        txtNombre.getText() + " - " +
+                        txtPrecio.getText());
                 limpiarCampos();
             }
         });
     }
+    public void actualizarTextos() {
+        setTitle(mensajeHandler.get("producto.anadir.titulo"));
+        lblCodigo.setText(mensajeHandler.get("producto.lbl.codigo"));
+        lblNombre.setText(mensajeHandler.get("producto.lbl.nombre"));
+        lblPrecio.setText(mensajeHandler.get("producto.lbl.precio"));
+        btnAceptar.setText(mensajeHandler.get("producto.btn.aceptar"));
+        btnLimpiar.setText(mensajeHandler.get("producto.btn.limpiar"));
+    }
+
+    private void initComponents() {
+        panelPrincipal = new JPanel();
+        panelPrincipal.setLayout(null);
+
+        lblCodigo = new JLabel("Código:");
+        lblCodigo.setBounds(40, 40, 100, 30);
+        panelPrincipal.add(lblCodigo);
+
+        txtCodigo = new JTextField();
+        txtCodigo.setBounds(150, 40, 200, 30);
+        panelPrincipal.add(txtCodigo);
+
+        lblNombre = new JLabel("Nombre:");
+        lblNombre.setBounds(40, 90, 100, 30);
+        panelPrincipal.add(lblNombre);
+
+        txtNombre = new JTextField();
+        txtNombre.setBounds(150, 90, 200, 30);
+        panelPrincipal.add(txtNombre);
+
+        lblPrecio = new JLabel("Precio:");
+        lblPrecio.setBounds(40, 140, 100, 30);
+        panelPrincipal.add(lblPrecio);
+
+        txtPrecio = new JTextField();
+        txtPrecio.setBounds(150, 140, 200, 30);
+        panelPrincipal.add(txtPrecio);
+
+        btnAceptar = new JButton("Aceptar");
+        btnAceptar.setBounds(80, 210, 120, 40);
+        panelPrincipal.add(btnAceptar);
+
+        btnLimpiar = new JButton("Limpiar");
+        btnLimpiar.setBounds(220, 210, 120, 40);
+        panelPrincipal.add(btnLimpiar);
+
+        setContentPane(panelPrincipal);
+    }
+
 
     public JPanel getPanelPrincipal() {
         return panelPrincipal;
@@ -95,7 +147,37 @@ public class ProductoAnadirView extends JInternalFrame {
         JOptionPane.showMessageDialog(this, mensaje);
     }
 
+    public JLabel getLblPrecio() {
+        return lblPrecio;
+    }
 
+    public void setLblPrecio(JLabel lblPrecio) {
+        this.lblPrecio = lblPrecio;
+    }
+
+    public JLabel getLblNombre() {
+        return lblNombre;
+    }
+
+    public void setLblNombre(JLabel lblNombre) {
+        this.lblNombre = lblNombre;
+    }
+
+    public JLabel getLblCodigo() {
+        return lblCodigo;
+    }
+
+    public void setLblCodigo(JLabel lblCodigo) {
+        this.lblCodigo = lblCodigo;
+    }
+
+    public MensajeInternacionalizacionHandler getMensajeHandler() {
+        return mensajeHandler;
+    }
+
+    public void setMensajeHandler(MensajeInternacionalizacionHandler mensajeHandler) {
+        this.mensajeHandler = mensajeHandler;
+    }
 
     public void limpiarCampos() {
         txtCodigo.setText("");
@@ -107,5 +189,6 @@ public class ProductoAnadirView extends JInternalFrame {
         for (Producto producto : productos) {
             System.out.println(producto);
         }
+
     }
 }

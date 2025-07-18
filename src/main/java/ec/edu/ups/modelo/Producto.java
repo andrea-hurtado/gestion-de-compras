@@ -14,6 +14,11 @@ public class Producto {
         this.precio = precio;
     }
 
+    public Producto(int codigo, String nombre) {
+        this.codigo = codigo;
+
+    }
+
     public void setCodigo(int codigo) {
         this.codigo = codigo;
     }

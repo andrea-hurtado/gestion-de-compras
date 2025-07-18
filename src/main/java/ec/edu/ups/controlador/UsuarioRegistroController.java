@@ -1,73 +1,66 @@
 package ec.edu.ups.controlador;
 
+import ec.edu.ups.dao.PreguntasSeguridadDAO;
 import ec.edu.ups.dao.UsuarioDAO;
+import ec.edu.ups.modelo.PreguntasSeguridad;
 import ec.edu.ups.modelo.Rol;
 import ec.edu.ups.modelo.Usuario;
 import ec.edu.ups.vista.UsuarioRegistroView;
-
+import java.util.List;
+import java.util.Arrays;
 import javax.swing.*;
 import java.time.LocalDate;
-import java.util.Arrays;
-import java.util.List;
+
 
 public class UsuarioRegistroController {
 
     private final UsuarioRegistroView vista;
     private final UsuarioDAO usuarioDAO;
+    private final PreguntasSeguridadDAO preguntasSeguridadDAO;
 
-    public UsuarioRegistroController(UsuarioRegistroView vista, UsuarioDAO usuarioDAO) {
+    public UsuarioRegistroController(UsuarioRegistroView vista, UsuarioDAO usuarioDAO,  PreguntasSeguridadDAO preguntasSeguridadDAO) {
         this.vista = vista;
         this.usuarioDAO = usuarioDAO;
+        this.preguntasSeguridadDAO = preguntasSeguridadDAO;
 
         this.vista.getBtnRegistrarse().addActionListener(e -> registrarUsuario());
     }
 
     private void registrarUsuario() {
 
-        try {
-            String nombre = vista.getTxtNombreCompleto().getText();
-            LocalDate fechaNacimiento = LocalDate.parse(vista.getTxtFechaNacimiento().getText()); // usa un formateador si lo necesitas
-            String correo = vista.getTxtCorreoElectronico().getText();
-            String telefono = vista.getTxtTelefono().getText();
+        String nombre = vista.getTxtNombreCompleto().getText().trim();
+        LocalDate fechaNacimiento = LocalDate.parse(vista.getTxtFechaNacimiento().getText().trim());
+        String correo = vista.getTxtCorreoElectronico().getText().trim();
+        String telefono = vista.getTxtTelefono().getText().trim();
 
-            // preguntas y respuestas de seguridad por si olvida contraseña
-            String pregunta1 = (String) vista.getCbxPregunta1().getSelectedItem();
-            String respuesta1 = vista.getTxtRespuesta1().getText();
-            String pregunta2 = (String) vista.getCbxPregunta2().getSelectedItem();
-            String respuesta2 = vista.getTxtRespuesta2().getText();
-            String pregunta3 = (String) vista.getCbxPregunta3().getSelectedItem();
-            String respuesta3 = vista.getTxtRespuesta3().getText();
+        String username = vista.getTxtIngreseUsuario().getText().trim();
+        String contrasenia = vista.getTxtIngreseContrasenia().getText().trim();
+        Rol rol = (Rol) vista.getCbxRol().getSelectedItem();
 
+        String respuesta1 = vista.getTxtRespuestaSeguridad1().getText().trim();
+        String respuesta2 = vista.getTxtRespuestSeguridad2().getText().trim();
+        String respuesta3 = vista.getTxtRespuestaSeguridad3().getText().trim();
 
-            List<String> preguntas = Arrays.asList(pregunta1, pregunta2, pregunta3);
-            List<String> respuestas = Arrays.asList(respuesta1, respuesta2, respuesta3);
+        List<PreguntasSeguridad> preguntasRespondidas = Arrays.asList(
+                new PreguntasSeguridad("¿Cuál es el primer nombre de su padre?", respuesta1),
+                new PreguntasSeguridad("¿Cuál es su comida favorita?", respuesta2),
+                new PreguntasSeguridad("¿Cuál es su película o serie favorita?", respuesta3)
+        );
+        preguntasSeguridadDAO.guardarPreguntasPorUsuario(username, preguntasRespondidas);
 
-            String username = vista.getTxtIngreseUsuario().getText();
-            String contrasenia = vista.getTxtIngreseContrasenia().getText();
+        Usuario nuevoUsuario = new Usuario(
+                username, contrasenia, Rol.USUARIO, nombre, fechaNacimiento, correo, telefono,
+                new String[]{respuesta1, respuesta2, respuesta3}
+        );
 
-            Usuario nuevoUsuario = new Usuario(
-                    username,
-                    contrasenia,
-                    Rol.USUARIO,
-                    nombre,
-                    fechaNacimiento,
-                    correo,
-                    telefono,
-                    preguntas,
-                    respuestas
-            );
+        usuarioDAO.crear(nuevoUsuario);
 
-            usuarioDAO.crear(nuevoUsuario);
-
-            JOptionPane.showMessageDialog(vista, "Usuario registrado correctamente");
-            vista.dispose();
-
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(vista, "Error en el registro: " + e.getMessage());
-        }
-
-        }
+        JOptionPane.showMessageDialog(vista, "Usuario registrado correctamente");
+        vista.dispose();
+    }
 
 }
+
+
 
 

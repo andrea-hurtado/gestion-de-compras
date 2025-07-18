@@ -22,11 +22,17 @@ public class CarritoAnadirView extends JInternalFrame {
     private JLabel lblIVA;
     private JLabel lblTotal;
     private JLabel lblSubtotal;
-    private MensajeInternacionalizacionHandler mensajeInternacionalizacion;
+    private JLabel lblCodigo;
+    private JLabel lblNombre;
+    private JLabel lblPrecio;
+    private JLabel lblCantidad;
+    private JButton btnEliminar;
+    private JButton btnActualizar;
+    private MensajeInternacionalizacionHandler mensajeHandler;
 
-    public CarritoAnadirView(MensajeInternacionalizacionHandler mensajeInternacionalizacion){
+    public CarritoAnadirView(MensajeInternacionalizacionHandler mensajeHandler){
         super("Carrito de Compras", true, true, false, true);
-        this.mensajeInternacionalizacion = mensajeInternacionalizacion;
+        this.mensajeHandler = mensajeHandler;
         setContentPane(panelPrincipal);
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
         setSize(500, 500);
@@ -39,12 +45,32 @@ public class CarritoAnadirView extends JInternalFrame {
         cargarDatos();
 
     }
+    public void actualizarTextos() {
+        setTitle(mensajeHandler.get("carrito.anadir.titulo"));
+        lblCodigo.setText(mensajeHandler.get("producto.lbl.codigo"));
+        lblNombre.setText(mensajeHandler.get("producto.lbl.nombre"));
+        lblPrecio.setText(mensajeHandler.get("producto.lbl.precio"));
+        lblCantidad.setText(mensajeHandler.get("carrito.lbl.cantidad"));
+        lblSubtotal.setText(mensajeHandler.get("carrito.lbl.subtotal"));
+        lblIVA.setText(mensajeHandler.get("carrito.lbl.iva"));
+        lblTotal.setText(mensajeHandler.get("carrito.lbl.total"));
+        btnBuscar.setText(mensajeHandler.get("carrito.btn.buscar"));
+        btnAnadir.setText(mensajeHandler.get("carrito.btn.anadir"));
+        btnGuardar.setText(mensajeHandler.get("carrito.btn.guardar"));
+        btnLimpiar.setText(mensajeHandler.get("carrito.btn.limpiar"));
+        btnEliminar.setText(mensajeHandler.get("carrito.btn.eliminar"));
+        btnActualizar.setText(mensajeHandler.get("carrito.btn.actualizar"));
+    }
+
 
     private void cargarDatos(){
         cbxCantidad.removeAllItems();
         for(int i = 0; i < 20; i++){
             cbxCantidad.addItem(String.valueOf(i + 1));
         }
+    }
+    public void setMensajeHandler(MensajeInternacionalizacionHandler mensajeHandler) {
+        this.mensajeHandler = mensajeHandler;
     }
 
     public JButton getBtnBuscar() {
@@ -100,7 +126,7 @@ public class CarritoAnadirView extends JInternalFrame {
     }
 
     public MensajeInternacionalizacionHandler getMensajeInternacionalizacion() {
-        return mensajeInternacionalizacion;
+        return mensajeHandler;
     }
 
     public void mostrarMensaje(String mensaje) {
@@ -110,6 +136,8 @@ public class CarritoAnadirView extends JInternalFrame {
     public void setBtnBuscar(JButton btnBuscar) {
         this.btnBuscar = btnBuscar;
     }
+
+    public JButton getBtnActualizar() {return btnActualizar;}
 
     public JLabel getLblSubtotal() {
         return lblSubtotal;
@@ -134,4 +162,49 @@ public class CarritoAnadirView extends JInternalFrame {
     public void setLblIVA(JLabel lblIVA) {
         this.lblIVA = lblIVA;
     }
+
+    public void setTxtCodigo(JTextField txtCodigo) {
+        this.txtCodigo = txtCodigo;
+    }
+
+    public JLabel getLblNombre() {
+        return lblNombre;
+    }
+
+    public void setLblNombre(JLabel lblNombre) {
+        this.lblNombre = lblNombre;
+    }
+
+    public JLabel getLblPrecio() {
+        return lblPrecio;
+    }
+
+    public void setLblPrecio(JLabel lblPrecio) {
+        this.lblPrecio = lblPrecio;
+    }
+
+    public JLabel getLblCantidad() {
+        return lblCantidad;
+    }
+
+    public void setLblCantidad(JLabel lblCantidad) {
+        this.lblCantidad = lblCantidad;
+    }
+
+    public JLabel getLblCodigo() {
+        return lblCodigo;
+    }
+
+    public void setLblCodigo(JLabel lblCodigo) {
+        this.lblCodigo = lblCodigo;
+    }
+
+    public JButton getBtnEliminar() {
+        return btnEliminar;
+    }
+
+    public void setBtnEliminar(JButton btnEliminar) {
+        this.btnEliminar = btnEliminar;
+    }
+
 }

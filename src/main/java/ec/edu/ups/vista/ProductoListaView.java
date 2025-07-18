@@ -28,11 +28,25 @@ public class ProductoListaView extends JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setResizable(true);
+        actualizarTextos();
 
         modelo = new DefaultTableModel();
         Object[] columnas = {"Codigo", "Nombre", "Precio"};
         modelo.setColumnIdentifiers(columnas);
         tblProductos.setModel(modelo);
+    }
+    public void actualizarTextos() {
+        setTitle(mensajeHandler.get("producto.lista.titulo"));
+        lblListaProductos.setText(mensajeHandler.get("producto.lista.label"));
+        btnBuscar.setText(mensajeHandler.get("producto.lista.btn.buscar"));
+        btnListar.setText(mensajeHandler.get("producto.lista.btn.listar"));
+
+        modelo.setColumnIdentifiers(new Object[] {
+                mensajeHandler.get("producto.lista.columna.codigo"),
+                mensajeHandler.get("producto.lista.columna.nombre"),
+                mensajeHandler.get("producto.lista.columna.precio")
+        });
+        modelo.fireTableStructureChanged();
     }
 
     public JTextField getTxtBuscar() {
@@ -87,6 +101,22 @@ public class ProductoListaView extends JInternalFrame {
 
     public void setLblNombre(JLabel lblNombre) {
         this.lblListaProductos = lblNombre;
+    }
+
+    public JLabel getLblListaProductos() {
+        return lblListaProductos;
+    }
+
+    public void setLblListaProductos(JLabel lblListaProductos) {
+        this.lblListaProductos = lblListaProductos;
+    }
+
+    public MensajeInternacionalizacionHandler getMensajeHandler() {
+        return mensajeHandler;
+    }
+
+    public void setMensajeHandler(MensajeInternacionalizacionHandler mensajeHandler) {
+        this.mensajeHandler = mensajeHandler;
     }
 
     public void cargarDatos(List<Producto> listaProductos) {

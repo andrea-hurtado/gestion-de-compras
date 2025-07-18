@@ -218,9 +218,18 @@ public class LoginView extends JFrame {
         this.mensajeHandler = mensajeHandler;
     }
 
+    public MensajeInternacionalizacionHandler getMensajeInternacionalizacion() {
+        return mensajeHandler;
+    }
     public void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(this, mensaje);
     }
+
+    public void limpiarCampos() {
+        txtUsername.setText("");
+        txtContrasenia.setText("");
+    }
+
 
 }
 
