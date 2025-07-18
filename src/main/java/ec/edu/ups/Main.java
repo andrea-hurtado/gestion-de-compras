@@ -20,11 +20,11 @@ import ec.edu.ups.vista.*;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ResourceBundle;
 
 public class Main {
     public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(() -> {
-
 
             MensajeInternacionalizacionHandler mensajeHandler = new MensajeInternacionalizacionHandler("es", "EC");
 
@@ -33,6 +33,7 @@ public class Main {
             UsuarioRegistroView usuarioRegistroView = new UsuarioRegistroView(mensajeHandler);
             UsuarioAdminView usuarioAdminView = new UsuarioAdminView(mensajeHandler);
             RecuperarContraseniaView recuperarContraseniaView = new RecuperarContraseniaView(mensajeHandler);
+            ResourceBundle bundle = ResourceBundle.getBundle("mensajes");
 
             UsuarioController usuarioController = new UsuarioController(
                     usuarioDAO,
@@ -62,10 +63,9 @@ public class Main {
                         CarritoListaView carritoListaView = new CarritoListaView(mensajeHandler);
                         UsuarioRegistroView usuarioRegistroView = new UsuarioRegistroView(mensajeHandler);
                         UsuarioAdminView usuarioAdminView = new UsuarioAdminView(mensajeHandler);
-                        RecuperarContraseniaView recuperarContraseñaView = new RecuperarContraseniaView(mensajeHandler);
+                        RecuperarContraseniaView recuperarContraseniaView = new RecuperarContraseniaView(mensajeHandler);
                         PreguntasSeguridadDAO preguntasSeguridadDAO = new PreguntaSeguridadDAOMemoria();
                         UsuarioRegistroController controller = new UsuarioRegistroController(usuarioRegistroView, usuarioDAO, preguntasSeguridadDAO);
-
 
                         ProductoController productoController = new ProductoController(
                                 productoDAO,

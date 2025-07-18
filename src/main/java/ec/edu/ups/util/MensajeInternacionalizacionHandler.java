@@ -4,9 +4,14 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class MensajeInternacionalizacionHandler {
-
     private ResourceBundle bundle;
     private Locale locale;
+
+    public static String obtenerTexto(String clave) {
+        ResourceBundle bundle = ResourceBundle.getBundle("mensajes");
+        return bundle.getString(clave);
+    }
+
 
     public MensajeInternacionalizacionHandler(String lenguaje, String pais) {
         this.locale = new Locale(lenguaje, pais);
@@ -29,9 +34,7 @@ public class MensajeInternacionalizacionHandler {
         return  this.bundle.getString(clave);
     }
 
-    public void setLocale(Locale nuevoLocale) {
-        this.locale = nuevoLocale;
-        this.bundle = ResourceBundle.getBundle("mensajes", this.locale);
-    }
+
+
 
 }

@@ -20,9 +20,11 @@ public class RecuperarContraseniaView extends JInternalFrame{
     private JLabel lblRestablecerContrasenia;
     private JLabel lblRespondaPregunta;
     private JLabel lblUsuario;
+    private MensajeInternacionalizacionHandler mensajeHandler;
 ;
 
-    public RecuperarContraseniaView(MensajeInternacionalizacionHandler handler){
+    public RecuperarContraseniaView(MensajeInternacionalizacionHandler mensajeHandler){
+        this.mensajeHandler = mensajeHandler;
         setContentPane(panelPrincipal);
         setTitle("Registro de Usuario");
         setSize(600, 500);
@@ -142,5 +144,13 @@ public class RecuperarContraseniaView extends JInternalFrame{
 
     public void setLblUsuario(JLabel lblUsuario) {
         this.lblUsuario = lblUsuario;
+    }
+
+    public MensajeInternacionalizacionHandler getMensajeHandler() {
+        return mensajeHandler;
+    }
+
+    public void setMensajeHandler(MensajeInternacionalizacionHandler mensajeHandler) {
+        this.mensajeHandler = mensajeHandler;
     }
 }

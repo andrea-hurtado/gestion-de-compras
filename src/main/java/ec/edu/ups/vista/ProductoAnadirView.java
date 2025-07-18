@@ -21,9 +21,9 @@ public class ProductoAnadirView extends JInternalFrame {
     private JLabel lblCodigo;
     private MensajeInternacionalizacionHandler mensajeHandler;
 
-    public ProductoAnadirView(MensajeInternacionalizacionHandler handler) {
+    public ProductoAnadirView(MensajeInternacionalizacionHandler mensajeHandler) {
 
-        this.mensajeHandler = handler;
+        this.mensajeHandler = mensajeHandler;
         initComponents();
 //        setContentPane(panelPrincipal);
         setTitle("Datos del Producto");

@@ -18,8 +18,8 @@ public class CarritoListaView extends JInternalFrame {
     private DefaultTableModel modelo;
 
 
-    public CarritoListaView(MensajeInternacionalizacionHandler handler) {
-        this.mensajeHandler = handler;
+    public CarritoListaView(MensajeInternacionalizacionHandler mensajeHandler) {
+        this.mensajeHandler = mensajeHandler;
         setContentPane(panelPrincipal);
         setTitle("Listado de Carritos");
         setSize(600, 400);

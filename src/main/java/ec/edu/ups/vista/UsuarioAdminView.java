@@ -27,11 +27,11 @@ public class UsuarioAdminView extends JInternalFrame {
     private MensajeInternacionalizacionHandler mensajeHandler;
     private DefaultTableModel modelo;
 
-    public UsuarioAdminView(MensajeInternacionalizacionHandler handler) {
-        this.mensajeHandler = handler;
+    public UsuarioAdminView(MensajeInternacionalizacionHandler mensajeHandlerhandler) {
+        this.mensajeHandler = mensajeHandlerhandler;
         setContentPane(panelPrincipal);
         setTitle("Gestión de Usuarios");
-        setTitle(mensajeHandler.get("usuario.admin.titulo"));
+//        setTitle(mensajeHandler.get("usuario.admin.titulo"));
         setSize(700, 500);
         setClosable(true);
         setIconifiable(true);

@@ -18,9 +18,9 @@ public class ProductoListaView extends JInternalFrame {
     private DefaultTableModel modelo;
     private MensajeInternacionalizacionHandler mensajeHandler;
 
-    public ProductoListaView(MensajeInternacionalizacionHandler handler) {
+    public ProductoListaView(MensajeInternacionalizacionHandler mensajeHandler) {
 
-        this.mensajeHandler = handler;
+        this.mensajeHandler = mensajeHandler;
         setContentPane(panelPrincipal);
         setTitle("Listado de Productos");
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);

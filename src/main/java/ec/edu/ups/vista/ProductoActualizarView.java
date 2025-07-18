@@ -24,8 +24,8 @@ public class ProductoActualizarView extends JInternalFrame{
     private DefaultTableModel modelo;
 
 
-    public ProductoActualizarView(MensajeInternacionalizacionHandler handler) {
-        this.mensajeHandler = handler;
+    public ProductoActualizarView(MensajeInternacionalizacionHandler mensajeHandler) {
+        this.mensajeHandler = mensajeHandler;
         setContentPane(panelPrincipal);
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
         setSize(500, 500);

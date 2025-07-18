@@ -18,8 +18,8 @@ public class ProductoEliminarView extends JInternalFrame {
     private DefaultTableModel modelo;
     private MensajeInternacionalizacionHandler mensajeHandler;
 
-    public ProductoEliminarView(MensajeInternacionalizacionHandler handler) {
-        this.mensajeHandler = handler;
+    public ProductoEliminarView(MensajeInternacionalizacionHandler mensajeHandler) {
+        this.mensajeHandler = mensajeHandler;
         setContentPane(rootPane);
         setTitle("Eliminar Producto");
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);

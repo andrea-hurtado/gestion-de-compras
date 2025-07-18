@@ -34,8 +34,8 @@ public class UsuarioRegistroView extends JFrame {
     private JLabel lblRol;
     private MensajeInternacionalizacionHandler mensajeHandler;
 
-    public UsuarioRegistroView(MensajeInternacionalizacionHandler handler) {
-        this.mensajeHandler = handler;
+    public UsuarioRegistroView(MensajeInternacionalizacionHandler mensajeHandler) {
+        this.mensajeHandler = mensajeHandler;
         initComponents();
         actualizarTextos();
         cbxRol.setRenderer(new DefaultListCellRenderer() {
@@ -313,9 +313,9 @@ public class UsuarioRegistroView extends JFrame {
     public void setMensajeHandler(MensajeInternacionalizacionHandler mensajeHandler) {
         this.mensajeHandler = mensajeHandler;
     }
-    public void cambiarIdioma(java.util.Locale nuevoLocale) {
-        mensajeHandler.setLocale(nuevoLocale);
-        actualizarTextos();
-    }
+//    public void cambiarIdioma(java.util.Locale nuevolenguaje) {
+//        mensajeHandler.setLenguaje(nuevolenguaje);
+//        actualizarTextos();
+//    }
 
 }

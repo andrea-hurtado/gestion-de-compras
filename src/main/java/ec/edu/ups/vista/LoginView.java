@@ -24,8 +24,8 @@ public class LoginView extends JFrame {
 
 
 
-    public LoginView(MensajeInternacionalizacionHandler handler) {
-        this.mensajeHandler = handler;
+    public LoginView(MensajeInternacionalizacionHandler mensajeHandler) {
+        this.mensajeHandler = mensajeHandler;
         setContentPane(panelPrincipal);
         setTitle(mensajeHandler.getMensaje("ventana.titulo"));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
