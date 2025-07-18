@@ -131,15 +131,15 @@ public class UsuarioController {
             usuarioAdminView.getTxtUsuario().setText(usuario.getUsername());
             usuarioAdminView.getTxtCorreoElectronico().setText(usuario.getContrasenia());
             usuarioAdminView.getCbxRol().setSelectedItem(usuario.getRol());
-        } else {
-            usuarioAdminView.mostrarMensaje("Seleccione un usuario para editar.");
-        }
+        } //else {
+            //usuarioAdminView.mostrarMensaje("Seleccione un usuario para editar.");
+       // }
     }
     private void eliminarUsuario() {
         String username = usuarioAdminView.getTxtUsuario().getText();
         usuarioDAO.eliminar(username);
 
-        usuarioAdminView.mostrarMensaje("usuario.admin.eliminado");
+        //usuarioAdminView.mostrarMensaje("usuario.admin.eliminado");
         buscarUsuarios();
     }
 
@@ -157,7 +157,7 @@ public class UsuarioController {
             if (usuario != null) {
                 usuarioAdminView.cargarDatos(List.of(usuario));
             } else {
-                usuarioAdminView.mostrarMensaje("usuario.admin.noencontrado");
+                //usuarioAdminView.mostrarMensaje("usuario.admin.no.encontrado");
                 usuarioAdminView.cargarDatos(usuarioDAO.listarTodos());
             }
         } else {
