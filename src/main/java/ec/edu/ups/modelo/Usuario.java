@@ -16,7 +16,15 @@ public class Usuario {
     private String[] respuestasSeguridad;
 
 
-    public Usuario(String nombreDeUsuario, String contrasenia, Rol rol, String nombreCompleto, LocalDate fechaNacimiento, String correoElectronico, String telefono, String[] respuestasSeguridad) {
+    public Usuario(
+            String nombreDeUsuario,
+            String contrasenia, Rol rol,
+            String nombreCompleto,
+            LocalDate fechaNacimiento,
+            String correoElectronico,
+            String telefono,
+            String[] respuestasSeguridad,
+            String cedula) {
         this.username = nombreDeUsuario;
         this.contrasenia = contrasenia;
         this.rol = rol;

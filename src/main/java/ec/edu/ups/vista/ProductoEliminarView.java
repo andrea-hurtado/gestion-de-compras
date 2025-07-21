@@ -15,12 +15,13 @@ public class ProductoEliminarView extends JInternalFrame {
     private JLabel lblNombre;
     private JTextField txtNombre;
     private JTextField txtCodigo;
+    private JPanel panelPrincipal;
     private DefaultTableModel modelo;
     private MensajeInternacionalizacionHandler mensajeHandler;
 
     public ProductoEliminarView(MensajeInternacionalizacionHandler mensajeHandler) {
         this.mensajeHandler = mensajeHandler;
-        setContentPane(rootPane);
+        setContentPane(panelPrincipal);
         setTitle("Eliminar Producto");
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
         setSize(500, 500);

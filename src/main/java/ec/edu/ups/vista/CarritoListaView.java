@@ -33,7 +33,6 @@ public class CarritoListaView extends JInternalFrame {
         DefaultTableModel modelo = new DefaultTableModel();
         Object[] columnas = {"ID", "Usuario", "Subtotal", "IVA", "Total"};
         modelo.setColumnIdentifiers(columnas);
-        btnListar.setModel((ButtonModel) modelo);
     }
     public void actualizarTextos() {
         setTitle(mensajeHandler.get("carritos.lista.titulo"));

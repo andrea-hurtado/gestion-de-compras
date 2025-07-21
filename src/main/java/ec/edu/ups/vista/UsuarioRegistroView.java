@@ -1,6 +1,5 @@
 package ec.edu.ups.vista;
 
-import ec.edu.ups.modelo.Rol;
 import ec.edu.ups.util.MensajeInternacionalizacionHandler;
 
 import javax.swing.*;
@@ -32,6 +31,8 @@ public class UsuarioRegistroView extends JFrame {
     private JTextField txtRespuestaSeguridad3;
     private JLabel lblPregunta3;
     private JLabel lblRol;
+    private JTextField txtCedula;
+    private JLabel lblCedula;
     private MensajeInternacionalizacionHandler mensajeHandler;
 
     public UsuarioRegistroView(MensajeInternacionalizacionHandler mensajeHandler) {
@@ -313,7 +314,23 @@ public class UsuarioRegistroView extends JFrame {
     public void setMensajeHandler(MensajeInternacionalizacionHandler mensajeHandler) {
         this.mensajeHandler = mensajeHandler;
     }
-//    public void cambiarIdioma(java.util.Locale nuevolenguaje) {
+
+    public JTextField getTxtCedula() {
+        return txtCedula;
+    }
+
+    public void setTxtCedula(JTextField txtCedula) {
+        this.txtCedula = txtCedula;
+    }
+
+    public JLabel getLblCedula() {
+        return lblCedula;
+    }
+
+    public void setLblCedula(JLabel lblCedula) {
+        this.lblCedula = lblCedula;
+    }
+    //    public void cambiarIdioma(java.util.Locale nuevolenguaje) {
 //        mensajeHandler.setLenguaje(nuevolenguaje);
 //        actualizarTextos();
 //    }
