@@ -8,5 +8,5 @@ public interface PreguntasSeguridadDAO {
     List<PreguntasSeguridad> obtenerPreguntasBase();
     void guardarPreguntasPorUsuario(String username, List<PreguntasSeguridad> preguntas);
     boolean usuarioExiste(String username);
-//    List<PreguntasSeguridad> obtenerPreguntasAleatorias(String username, int cantidad);
+    List<PreguntasSeguridad> obtenerPreguntasPorUsuario(String username);
 }

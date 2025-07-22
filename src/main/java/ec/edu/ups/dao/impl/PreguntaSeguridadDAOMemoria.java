@@ -36,4 +36,9 @@ public class PreguntaSeguridadDAOMemoria implements PreguntasSeguridadDAO {
         return preguntasPorUsuario.containsKey(username);
     }
 
+    @Override
+    public List<PreguntasSeguridad> obtenerPreguntasPorUsuario(String username) {
+        return preguntasPorUsuario.get(username);
+    }
+
 }

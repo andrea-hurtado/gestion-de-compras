@@ -3,6 +3,7 @@ package ec.edu.ups.vista;
 import ec.edu.ups.util.MensajeInternacionalizacionHandler;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MenuPrincipalView extends JFrame {
 
@@ -45,6 +46,8 @@ public class MenuPrincipalView extends JFrame {
 
     private void initComponents() {
         jDesktopPane = new MiJDesktopPane();
+        jDesktopPane.setBackground(new Color(130, 161, 160));
+
         menuBar = new JMenuBar();
 
         menuProducto = new JMenu(mensajeHandler.get("menu.producto"));

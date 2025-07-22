@@ -40,6 +40,7 @@ public class LoginView extends JFrame {
         actualizarTextos();
         cargarIconos();
 
+        btnRecuperar.setEnabled(true);
     }
 
     private void configurarComboBoxIdioma() {
@@ -91,6 +92,8 @@ public class LoginView extends JFrame {
         lblMensaje.setText(mensajeHandler.getMensaje("login.lblmensaje"));
 
         configurarComboBoxIdioma();
+
+        btnRecuperar.setEnabled(true);
     }
 
 

@@ -28,12 +28,13 @@ public class ProductoListaView extends JInternalFrame {
         setClosable(true);
         setIconifiable(true);
         setResizable(true);
-        actualizarTextos();
 
         modelo = new DefaultTableModel();
         Object[] columnas = {"Codigo", "Nombre", "Precio"};
         modelo.setColumnIdentifiers(columnas);
         tblProductos.setModel(modelo);
+        actualizarTextos();
+
     }
     public void actualizarTextos() {
         setTitle(mensajeHandler.get("producto.lista.titulo"));

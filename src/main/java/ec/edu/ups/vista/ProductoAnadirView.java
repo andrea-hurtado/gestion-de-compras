@@ -4,6 +4,7 @@ import ec.edu.ups.modelo.Producto;
 import ec.edu.ups.util.MensajeInternacionalizacionHandler;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -25,7 +26,7 @@ public class ProductoAnadirView extends JInternalFrame {
 
         this.mensajeHandler = mensajeHandler;
         initComponents();
-//        setContentPane(panelPrincipal);
+
         setTitle("Datos del Producto");
         setDefaultCloseOperation(JInternalFrame.DISPOSE_ON_CLOSE);
         setSize(500, 500);
@@ -33,6 +34,8 @@ public class ProductoAnadirView extends JInternalFrame {
         setIconifiable(true);
         setResizable(true);
         actualizarTextos();
+        panelPrincipal.setBackground(new Color(130,161,160));
+
 
 
         btnLimpiar.addActionListener(new ActionListener() {

@@ -34,7 +34,4 @@ public class MensajeInternacionalizacionHandler {
         return  this.bundle.getString(clave);
     }
 
-
-
-
 }
