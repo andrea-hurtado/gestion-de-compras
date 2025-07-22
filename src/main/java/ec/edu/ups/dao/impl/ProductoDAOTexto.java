@@ -2,13 +2,34 @@ package ec.edu.ups.dao.impl;
 
 import ec.edu.ups.dao.ProductoDAO;
 import ec.edu.ups.modelo.Producto;
+import ec.edu.ups.modelo.Usuario;
 
 import java.io.*;
 import java.util.*;
 
 public class ProductoDAOTexto implements ProductoDAO {
     private final File archivo;
+    private static final String RUTA_DATOS = "data/";
+    private static final String ARCHIVO_USUARIOS = "usuarios.txt";
+    private static final String RUTA_COMPLETA = RUTA_DATOS + ARCHIVO_USUARIOS;
 
+    public void UsuarioDAOTexto() { inicializarDirectorios();
+    }
+    private void inicializarDirectorios() {
+        File directorio = new File(RUTA_DATOS);
+        if (!directorio.exists()) {
+            directorio.mkdirs();
+        }
+    }
+    @Override
+    public void guardar(Producto producto) {
+        try (PrintWriter writer = new PrintWriter(
+                new FileWriter(RUTA_COMPLETA, true))) {
+            writer.println(producto.toString()); // o tu formato
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     public ProductoDAOTexto(String ruta) {
         this.archivo = new File(ruta);
     }

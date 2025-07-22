@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface UsuarioDAO {
 
+    void guardar(Usuario usuario);
+
     Usuario autenticar(String username, String contrasenia);
 
     void crear(Usuario usuario);

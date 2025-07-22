@@ -1,18 +1,19 @@
 package ec.edu.ups.modelo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Usuario {
+public class Usuario implements Serializable {
     private String username;
     private String contrasenia;
     private Rol rol;
+    private String cedula;
     private String nombreCompleto;
     private LocalDate fechaNacimiento;
     private String correoElectronico;
     private String telefono;
-    private String[] preguntasSeguridad;
     private String[] respuestasSeguridad;
 
 
@@ -23,8 +24,9 @@ public class Usuario {
             LocalDate fechaNacimiento,
             String correoElectronico,
             String telefono,
-            String[] respuestasSeguridad,
-            String cedula) {
+            String cedula,
+            String[] respuestasSeguridad) {
+
         this.username = nombreDeUsuario;
         this.contrasenia = contrasenia;
         this.rol = rol;
@@ -33,8 +35,16 @@ public class Usuario {
         this.correoElectronico = correoElectronico;
         this.telefono = telefono;
         this.respuestasSeguridad = respuestasSeguridad;
+        this.cedula = cedula;
     }
 
+
+    public String getCedula() {
+        return cedula;
+    }
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
 
     public String[] getRespuestasSeguridad() {
         return respuestasSeguridad;
@@ -109,7 +119,6 @@ public class Usuario {
                 ", fechaNacimiento=" + fechaNacimiento +
                 ", correoElectronico='" + correoElectronico + '\'' +
                 ", telefono='" + telefono + '\'' +
-                ", preguntasSeguridad=" + preguntasSeguridad +
                 ", respuestasSeguridad=" + respuestasSeguridad +
                 '}';
     }

@@ -1,7 +1,7 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.util.MensajeInternacionalizacionHandler;
-
+import ec.edu.ups.modelo.Rol;
 import javax.swing.*;
 
 public class UsuarioRegistroView extends JFrame {
@@ -66,13 +66,6 @@ public class UsuarioRegistroView extends JFrame {
             cbxRol.addItem(rol);
        }
 
-    }
-    public enum Rol {
-        ADMIN("rol.admin"),
-        USER("rol.user");
-        private final String key;
-        Rol(String key) { this.key = key; }
-        public String getKey() { return key; }
     }
 
     public void actualizarTextos() {

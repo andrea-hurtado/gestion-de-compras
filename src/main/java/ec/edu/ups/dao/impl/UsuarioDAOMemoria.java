@@ -15,19 +15,24 @@ public class UsuarioDAOMemoria implements UsuarioDAO {
 
     public UsuarioDAOMemoria() {
         usuarios = new ArrayList<Usuario>();
-        crear(new Usuario("admin", "12345", Rol.ADMINISTRADOR, "Andrea Hurtado", LocalDate.parse("2007-01-07"), "2007andreahurtado@gmail.com", "0995700101", new String[]{"Remigio", "Sushi", "YOU"}, "0150394138"));
-        crear(new Usuario("user", "12345", Rol.USUARIO, "Tatiana Hurtado", LocalDate.parse("2000-08-03"), "tatianahurtado@gmail.com", "0995700100", new String[]{"David", "Pizza", "Arcane"}, "0103497343" ));
+        usuarios.add(new Usuario("admin", "12345", Rol.ADMINISTRADOR, "Andrea Hurtado", LocalDate.parse("2007-01-07"), "2007andreahurtado@gmail.com", "0995700101", "0150394138", new String[]{"Remigio", "Sushi", "YOU"} ));
+        usuarios.add(new Usuario("user", "12345", Rol.USUARIO, "Tatiana Hurtado", LocalDate.parse("2000-08-03"), "tatianahurtado@gmail.com", "0995700100", "0910083088", new String[]{"David", "Pizza", "Arcane"} ));
     }
 
 
     @Override
     public Usuario autenticar(String username, String contrasenia) {
         for (Usuario usuario : usuarios) {
-            if(usuario.getUsername().equals(username) && usuario.getContrasenia().equals(contrasenia)){
+            if (usuario.getUsername() != null && usuario.getUsername().equals(username)
+                    && usuario.getContrasenia() != null && usuario.getContrasenia().equals(contrasenia)) {
                 return usuario;
             }
         }
         return null;
+    }
+    @Override
+    public void guardar(Usuario usuario) {
+        usuarios.add(usuario);
     }
 
     @Override

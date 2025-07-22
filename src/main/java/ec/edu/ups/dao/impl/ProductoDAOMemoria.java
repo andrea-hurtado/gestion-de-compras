@@ -12,13 +12,19 @@ public class ProductoDAOMemoria implements ProductoDAO {
     private List<Producto> productos;
 
     public ProductoDAOMemoria() {
+
         productos = new ArrayList<Producto>();
+    }
+
+    public void guardar(Producto producto) {
+        productos.add(producto);
     }
 
     @Override
     public void crear(Producto producto) {
         productos.add(producto);
     }
+
 
     @Override
     public Producto buscarPorCodigo(int codigo) {
@@ -64,6 +70,8 @@ public class ProductoDAOMemoria implements ProductoDAO {
 
     @Override
     public List<Producto> listarTodos() {
-        return productos;
+
+        return new ArrayList<>(productos);
     }
+
 }

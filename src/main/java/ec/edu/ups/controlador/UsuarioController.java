@@ -11,7 +11,6 @@ import ec.edu.ups.vista.RecuperarContraseniaView;
 import ec.edu.ups.vista.UsuarioAdminView;
 import ec.edu.ups.vista.UsuarioRegistroView;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
@@ -53,16 +52,33 @@ public class UsuarioController {
         configurarEventosEnVistas();
     }
 
-    private void configurarEventosEnVistas(){
+    private void configurarEventosEnVistas() {
         loginView.getBtnIniciarSesion().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 autenticar();
             }
         });
-        if (loginView.getBtnRecuperar() != null) {
-            loginView.getBtnRecuperar().addActionListener(e -> mostrarRecuperarContrasenia());
+        loginView.getBtnRecuperar().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) { mostrarRecuperarContrasenia();
+            }
+
+        });
+/*
+        if (recuperarContraseniaView.getBtnAceptar() != null) {
+            recuperarContraseniaView.getBtnAceptar().addActionListener(e -> verificarUsuarioParaRecuperar());
         }
+        if (recuperarContraseniaView.getVerificarButton() != null) {
+            recuperarContraseniaView.getVerificarButton().addActionListener(e -> verificarRespuesta());
+        }
+        if (recuperarContraseniaView.getBtnGuardar() != null) {
+            recuperarContraseniaView.getBtnGuardar().addActionListener(e -> guardarNuevaContrasenia());
+        }
+        if (recuperarContraseniaView.getBtnCancelar() != null) {
+            recuperarContraseniaView.getBtnCancelar().addActionListener(e -> recuperarContraseniaView.setVisible(false));
+        }
+*/
         loginView.getBtnRegistrarse().addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -87,19 +103,9 @@ public class UsuarioController {
         if (usuarioAdminView.getBtnListar() != null) {
             usuarioAdminView.getBtnListar().addActionListener(e -> buscarUsuarios());
         }
-        if (recuperarContraseniaView.getBtnAceptar() != null) {
-            recuperarContraseniaView.getBtnAceptar().addActionListener(e -> verificarUsuarioParaRecuperar());
-        }
-        if (recuperarContraseniaView.getVerificarButton() != null) {
-            recuperarContraseniaView.getVerificarButton().addActionListener(e -> verificarRespuesta());
-        }
-        if (recuperarContraseniaView.getBtnGuardar() != null) {
-            recuperarContraseniaView.getBtnGuardar().addActionListener(e -> guardarNuevaContrasenia());
-        }
-        if (recuperarContraseniaView.getBtnCancelar() != null) {
-            recuperarContraseniaView.getBtnCancelar().addActionListener(e -> recuperarContraseniaView.setVisible(false));
-        }
+
     }
+
     private void verificarUsuarioParaRecuperar() {
         String username = recuperarContraseniaView.getTxtIUsuario().getText().trim();
         if (username.isEmpty()) {
@@ -215,8 +221,8 @@ public class UsuarioController {
                     fechaNacimiento,
                     correo,
                     telefono,
-                    new String[]{respuesta1, respuesta2, respuesta3},
-                    cedula
+                    cedula,
+                    new String[]{respuesta1, respuesta2, respuesta3}
             );
             usuarioDAO.crear(nuevoUsuario);
 
@@ -227,22 +233,25 @@ public class UsuarioController {
         }
 
     }
+
     private void mostrarRegistro() {
         usuarioRegistroView.setVisible(true);
         usuarioRegistroView.setLocationRelativeTo(loginView);
     }
-    private void autenticar(){
+
+    private void autenticar() {
         String username = loginView.getTxtUsername().getText();
         String contrasenia = loginView.getTxtContrasenia().getText();
 
         usuario = usuarioDAO.autenticar(username, contrasenia);
-        if(usuario == null){
+        if (usuario == null) {
             loginView.mostrarMensaje("Usuario o contraseña incorrectos.");
-        }else{
+        } else {
             loginView.dispose();
             usuarioAutenticado = usuario;
         }
     }
+
     private void editarUsuario() {
         int fila = usuarioAdminView.getTblUsuarios().getSelectedRow();
         if (fila >= 0) {
@@ -253,24 +262,31 @@ public class UsuarioController {
             usuarioAdminView.getCbxRol().setSelectedItem(usuario.getRol());
         }
     }
+
     private void eliminarUsuario() {
         String username = usuarioAdminView.getTxtUsuario().getText();
         usuarioDAO.eliminar(username);
         buscarUsuarios();
     }
+
     private void mostrarRecuperarContrasenia() {
+        recuperarContraseniaView.setVisible(true);
+        usuarioRegistroView.setLocationRelativeTo(loginView);
+
+        //debe mosgtrar el panel principal
         recuperarContraseniaView.limpiarCampos();
         recuperarContraseniaView.mostrarSoloPanelUsuario();
-        recuperarContraseniaView.setVisible(true);
     }
 
 
-    public Usuario getUsuarioAutenticado(){
+    public Usuario getUsuarioAutenticado() {
         return usuario;
     }
+
     public void setUsuarioAutenticado(Usuario usuario) {
         this.usuarioAutenticado = usuario;
     }
+
     public void buscarUsuarios() {
         String username = usuarioAdminView.getTxtUsuario().getText();
         if (username != null && !username.trim().isEmpty()) {

@@ -5,7 +5,6 @@ import ec.edu.ups.controlador.ProductoController;
 import ec.edu.ups.controlador.UsuarioController;
 import ec.edu.ups.dao.CarritoDAO;
 import ec.edu.ups.dao.PreguntasSeguridadDAO;
-
 import ec.edu.ups.dao.ProductoDAO;
 import ec.edu.ups.dao.UsuarioDAO;
 import ec.edu.ups.dao.impl.*;
@@ -13,7 +12,6 @@ import ec.edu.ups.modelo.Rol;
 import ec.edu.ups.modelo.Usuario;
 import ec.edu.ups.util.MensajeInternacionalizacionHandler;
 import ec.edu.ups.vista.*;
-
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -117,6 +115,7 @@ public class Main {
             UsuarioAdminView usuarioAdminView = new UsuarioAdminView(mensajeHandler);
             RecuperarContraseniaView recuperarContraseniaView = new RecuperarContraseniaView(mensajeHandler);
             ResourceBundle bundle = ResourceBundle.getBundle("mensajes");
+
 
             UsuarioController usuarioController = new UsuarioController(
                     usuarioDAO,

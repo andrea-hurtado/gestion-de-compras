@@ -16,6 +16,13 @@ public class ProductoDAOBinario implements ProductoDAO {
     }
 
     @Override
+    public void guardar(Producto producto) {
+        List<Producto> productos = listarTodos();
+        productos.add(producto);
+        guardarLista(productos);
+    }
+
+    @Override
     public void crear(Producto producto) {
         List<Producto> productos = listarTodos();
         productos.add(producto);
